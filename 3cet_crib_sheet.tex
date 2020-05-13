@@ -1,0 +1,218 @@
+\documentclass[10pt, oneside, twocolumn]{article}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage[ampersand]{easylist}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{chemformula}
+\usepackage{dirtytalk}
+\usepackage{euler}
+\graphicspath{./}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength\parindent{0cm}
+\allowdisplaybreaks
+
+\usepackage{standalone}
+\usepackage{rotating}
+\numberwithin{equation}{section}
+
+
+\title{Yr 3: Chemical Engineering Thermodynamics - Exam Crib Sheet}
+\author{Genevieve Clifford}
+\date{Semester 3, Week 4}
+
+
+\begin{document}
+	\maketitle
+	\section{1\textsuperscript{st} Law of Thermodynamics}
+		The total energy of an isolated system is constant; energy can be transformed from one form to another, but can neither be created nor destroyed.
+		\\\\
+		Internal energy change = heat in - work done by the system on surroundings
+		
+		\begin{align*}
+		dU&=dq-dw\\
+		dU&=Tds-pdV\\
+		H&=U+pV\\
+		dH&=dU+Vdp+pdV\\
+		dH&=Tds+Vdp
+		\end{align*}
+	\section{2\textsuperscript{nd} Law of Thermodynamics}
+		The total entropy of an isolated system can never decrease over time, and is constant if and only if all processes are reversible. In general, the total entropy of an isolated system tends to increase.
+		\begin{equation}
+		\Delta s=\int \frac{dq}{T}
+		\end{equation}
+		\subsection{Analytic solution to 2\textsuperscript{nd} Law}
+			\begin{equation}
+			{d}H=T{d}s+V{d}p \label{eq:3law1}
+			\end{equation}
+			We can include the generic statement that $dH$ and $dS$ are equal to the sum of their partial derivatives:
+			\begin{equation}
+			dH={\left(\frac{\partial H}{\partial T}\right)}_P{d}T+{\left(\frac{\partial H}{\partial P}\right)}_T{d}P \label{eq:3law2}
+			\end{equation}
+			\begin{equation}
+			dS={\left(\frac{\partial S}{\partial T}\right)}_P{d}T+{\left(\frac{\partial S}{\partial P}\right)}_T{d}P \label{eq:3law3}
+			\end{equation}
+			By setting Equation \ref{eq:3law1} equal to Equation \ref{eq:3law2}, it is possible to extract:
+			\begin{equation}
+			dS=\frac{1}{T}{\left(\frac{\partial H}{\partial T}\right)}_P{d}T+\frac{1}{T}\left[{\left(\frac{\partial H}{\partial P}\right)}_T-\frac{V}{T}\right]dP \label{eq:3law4}
+			\end{equation}
+			By directly comparing Equations \ref{eq:3law3} and \ref{eq:3law4}, it is possible to derive the following equations:
+			\begin{gather}
+			{\left(\frac{\partial S}{\partial T}\right)}_P=\frac{1}{T}{\left(\frac{\partial H}{\partial T}\right)}_P \label{eq:3law10}\\
+			T{\left(\frac{\partial S}{\partial P}\right)}_T={\left(\frac{\partial H}{\partial P}\right)}_T-V \label{eq:3law5}
+			\end{gather}
+			Some partial differentiation yields:
+			\begin{gather}
+			{\left(\frac{\partial^2 S}{\partial P\partial T}\right)}=\frac{1}{T}{\left(\frac{\partial H}{\partial P\partial T}\right)}\\
+			T{\left(\frac{\partial^2 S}{\partial T\partial P}\right)}+{\left(\frac{\partial S}{\partial P}\right)}_T={\left(\frac{\partial^2 H}{\partial T\partial P}\right)}-{\left(\frac{\partial V}{\partial T}\right)}
+			\end{gather}
+			By making use of Schwarz's Theorem, we yield:
+			\begin{gather}
+			{\left(\frac{\partial^2 S}{\partial P\partial T}\right)}\equiv{\left(\frac{\partial^2 S}{\partial T\partial P}\right)}\\
+			{\left(\frac{\partial^2 H}{\partial P\partial T}\right)}\equiv{\left(\frac{\partial^2 H}{\partial T\partial P}\right)}\\
+			{\left(\frac{\partial S}{\partial P}\right)}_T=-{\left(\frac{\partial V}{\partial T}\right)}_P \label{eq:3law6}\\
+			\end{gather}
+			It is now useful to derive the specific heats:
+			\begin{gather}
+			C_p={\left(\frac{\partial H}{\partial T}\right)}_P \label{eq:3law8}\\
+			C_v={\left(\frac{\partial U}{\partial T}\right)}_V
+			\end{gather}
+			Through careful combination of previous derived equations it is now possible to derive:
+			\begin{equation}
+			dS=\frac{C_p dT}{T}-{\left(\frac{\partial V}{\partial T}\right)}_P dP
+			\end{equation}
+			Assuming $C_p$ is constant and that the ideal gas law applies, we gain the following useful formula:
+			\begin{equation}
+			\Delta S=nC_p \ ln\left(\frac{T_2}{T_1}\right)-nR \ ln\left(\frac{P_2}{P_1}\right)
+			\end{equation}
+		\subsection{Derivation of a formula for enthalpy change in terms of Equation of State}
+			By use of Equation \ref{eq:3law5} and \ref{eq:3law6}, it is possible to derive an equation that delivers the enthalpy change, fit for use with Equations of State (i.e. Ideal Gas Law, van der Waals, Peng-Robinson, Soave-Redlich-Kwong etc.)
+			\begin{gather}
+			{\left(\frac{\partial H}{\partial P}\right)}_T=T{\left(\frac{\partial S}{\partial P}\right)}_T+V\\
+			{\left(\frac{\partial H}{\partial P}\right)}_T=V-T{\left(\frac{\partial V}{\partial T}\right)}_P \label{eq:3law7}
+			\end{gather}
+			Combining Equation \ref{eq:3law2} with \ref{eq:3law7} and \ref{eq:3law8}, it is possible to derive the full general equation:
+			\begin{equation}
+			dH=C_pdT+\left[V-T{\left(\frac{\partial V}{\partial T}\right)}_P\right]dP
+			\end{equation}
+			If we make the assumption that the Ideal Gas Law applies, i.e. $Pv=RT$, the equation becomes:
+			\begin{equation}
+			dH=C_pdT
+			\end{equation}
+		\subsection{Derivation for equations linking the heat capacities}
+			It is necessary to define $dU$, then derive an equation to gain $dS$ in terms of $dU$: 
+			\begin{gather}
+			dU=TdS-PdV\\
+			dU={\left(\frac{\partial U}{\partial T}\right)}_VdT+{\left(\frac{\partial U}{\partial V}\right)}_TdV\\
+			dS=\frac{1}{T}{\left(\frac{\partial U}{\partial T}\right)}_VdT+\frac{1}{T}\left[{\left(\frac{\partial U}{\partial V}\right)}_T+\frac{P}{T}\right]dV \label{eq:3law9}
+			\end{gather}
+			Setting Equation \ref{eq:3law3} equal to \ref{eq:3law9}, the following is yielded:
+			\begin{gather}
+			T{\left(\frac{\partial S}{\partial T}\right)}_V={\left(\frac{\partial U}{\partial T}\right)}_V=C_v
+			\end{gather}
+			Along with the relation gained in Equation \ref{eq:3law10}, the following equation can be drawn:
+			\begin{equation}
+			C_p-C_v=T\left[{\left(\frac{\partial S}{\partial T}\right)}_P-{\left(\frac{\partial S}{\partial T}\right)}_V\right]
+			\end{equation}
+			Dividing Equation \ref{eq:3law3} by $\partial T$ yields:
+			\begin{equation}
+			{\left(\frac{\partial S}{\partial T}\right)}_V={\left(\frac{\partial S}{\partial T}\right)}_P+{\left(\frac{\partial S}{\partial P}\right)}_T{\left(\frac{\partial P}{\partial T}\right)}_V
+			\end{equation}
+			This is merged with previously derived quantities to give:
+			\begin{equation}
+			Cp-C_v=T{\left(\frac{\partial V}{\partial T}\right)}_P{\left(\frac{\partial P}{\partial T}\right)}_V
+			\end{equation}
+			When used in conjunction with the Ideal Gas Law, the equation simplifies to:
+			\begin{equation}
+			C_p-C_v=R
+			\end{equation}
+	\section{3\textsuperscript{rd} Law of Thermodynamics}
+		The entropy of a system approaches a constant value as its temperature approaches absolute zero (\SI{0}{\kelvin}). Commonly given as \say{The entropy of a perfect crystal is zero when the temperature of the crystal is equal to absolute zero (\SI{0}{\kelvin})}.
+	\section{Hess' Law}
+		The enthalpy change accompanying a chemical change is independent of the route by which the chemical change occurs.
+		\begin{gather}
+		\Delta H^{\circ}=\sum_i \Delta H^{\circ}_{fi,products}-\sum_i \Delta H^{\circ}_{fi,reactants}\\
+		\Delta H^\circ_T=\Delta H^\circ_{\SI{298}{\kelvin}}+\int_{\SI{298}{\kelvin}}^{T}\Delta C_p dT
+		\end{gather}
+		\subsection{Formation Equations}
+			\begin{gather}
+			\Delta_r H^{\ominus}=\sum vH^\ominus(products)-\sum vH^\ominus(reactants)\\
+			\Delta_r S^{\ominus}=\sum vS^\ominus(products)-\sum vS^\ominus(reactants)\\
+			\Delta_f G^{\ominus}=\sum v\Delta_f^\ominus G(products)-\sum v\Delta_f^\ominus G(reactants)
+			\end{gather}
+	\section{Free Energy and Equilibrium}
+		Helmholtz Free Energy, with $dA=0$ for equilibrium at constant temperature and volume:
+		\begin{equation}
+		A=U-TS
+		\end{equation}
+		Gibbs Free Energy, with $dG=0$ for equilibrium at a specified constant temperature and pressure:
+		\begin{equation}
+		G=H-TS \label{eq:gibbs}
+		\end{equation}
+		\subsection{Derivation of the Clausius-Clapeyron equation}
+			Assume there is a substance which is formed of two phases, $\alpha$ and $\beta$, these phases are in equilibrium. The two phases are at a temperature $T$ and the system has  a pressure, $P$. The value of $dG$ for both phases is 0.
+			\begin{gather}
+			dG^\alpha=dG^\beta\\
+			dG^\beta=v^\beta dP-S^\beta dT=dG^\alpha=v^\alpha dP-S^\alpha dT\\
+			\frac{dP}{dT}=\frac{S^\beta-S^\alpha}{V^\beta-V^\alpha}\\
+			S^\beta-S^\alpha=\frac{dQ}{T}=\frac{L}{T}\\
+			\frac{dP}{dT}=\frac{L}{T\Delta V}\\
+			\Delta V=V^G-V^L \ and \ V^G =RT/P >> V^L \tag{Ideal Gas}\\
+			\frac{dP}{dT}=\frac{LP}{RT^2}\\
+			\frac{d \ ln P}{dT}=\frac{L}{RT^2}
+			\end{gather}
+	\section{Chemical Potential}
+		\subsection{Derivation of equation linking equilibrium constant and Gibbs Free Energy}
+			Assume the following reaction takes place and all species are Ideal and Perfect Gases:\\
+			\ch{aA + bB -> cC + dD}\par
+			\begin{gather}
+			\mu_i=\mu_i^\circ+\int_{P_o}^{P_i}\bar{V}_{mi} \ dP\\
+			\bar{V}_{mi}=V_{mi}=\frac{R_mT}{P} \quad P_i=y_iP\\
+			\mu_i=G^\circ_{mi}+\int_{P_o}^{P_i}\left(\frac{R_mT}{P}\right) \ dP\\
+			\mu_i=\mu_i^\circ+RT \ ln \left(\frac{P_i}{P_o}\right)\\
+			R_mT \ ln K^*+\Delta G^\circ=\Delta G
+			\end{gather}
+			Where:
+			\begin{gather}
+			K^*=\left[\frac{{\left(\frac{P_C}{P_o}\right)}^c{\left(\frac{P_D}{P_o}\right)}^d}{{\left(\frac{P_A}{P_o}\right)}^a{\left(\frac{P_B}{P_o}\right)}^b}\right]\\
+			\Delta G^\circ=cG^\circ_{mC}+dG^\circ_{mD}-aG^\circ_{mA}+bG^\circ_{mB}\\
+			\Delta G=c\mu_C+d\mu_D-a\mu_A+b\mu_B
+			\end{gather}
+			By definition, $\Delta G=0$ at equilibrium, so:
+			\begin{equation}
+			ln \ K=-\frac{\Delta G^\circ_T}{R_mT} \label{eq:chempot}
+			\end{equation}
+		\subsection{Derivation of the Gibbs-Helmholtz Equation}
+		Taking and rearranging the work from the previous section (Equations \ref{eq:gibbs} and \ref{eq:chempot}), the following formulae are to be used as a starting point:
+		\begin{gather}
+		\Delta G^\circ_T=\Delta H^\circ_T-T \ \Delta S^\circ_T\\
+		\Delta G^\circ=-RT \ lnK\\
+		\frac{\Delta G^\circ_T}{T}=\frac{\Delta H^\circ_T}{T}-\Delta S^\circ_T
+		\end{gather}
+		The equation is then implicitly differentiated with partial respect to $T$. The enthalpy term is differentiated using the product rule.
+		\begin{gather}
+		\frac{\partial \frac{\Delta G^\circ_T}{T}}{\partial T}=\frac{1}{T}\frac{\partial H^\circ_T}{\partial T}-\frac{H^\circ_T}{T^2}+\frac{\partial S^\circ_T}{\partial T}\\
+		\frac{\partial H}{\partial T}\equiv C_p\therefore \frac{1}{T}\frac{\partial H^\circ_T}{\partial T}=\frac{C_p}{T}\\
+		ds\equiv\frac{dq}{dT}=\frac{C_p \ dT}{T}\therefore\frac{\partial S^\circ_T}{\partial T}=\frac{C_p}{T}\\
+		\frac{\partial \frac{\Delta G^\circ_T}{T}}{\partial T}=\frac{C_p}{T}-\frac{\Delta H^\circ_T}{T^2}-\frac{C_p}{T}\\
+		\frac{\partial \frac{\Delta G^\circ_T}{T}}{\partial T}=-\frac{\Delta H^\circ_T}{T^2} \label{eq:ghhz}                                                                  
+		\end{gather}
+		\subsection{Derivation of the van 't Hoff Equation}
+		Using Equation \ref{eq:ghhz}, it is possible to derive the van 't Hoff Equation:
+			\begin{gather}
+			\Delta G^\circ_T=-RT \ lnK\\
+			\frac{\Delta G^\circ_T}{T}=-R \ lnK\\
+			-\frac{\partial (R \ lnK)}{\partial T}=-\frac{\Delta H^\circ_T}{T^2}\\
+			\frac{\partial \ lnK}{\partial T}=\frac{\Delta H^\circ_T}{RT^2}
+			\end{gather}
+	\section{Useful Maths}
+		\subsection{Schwarz's Theorem}
+			\begin{equation}
+			\frac{\partial}{\partial x_j}{\left(\frac{\partial \phi}{\partial x_i}\right)}\equiv\frac{\partial}{\partial x_i}{\left(\frac{\partial \phi}{\partial x_j}\right)}
+			\end{equation}
+
+\end{document}

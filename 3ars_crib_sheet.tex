@@ -1,0 +1,191 @@
+\documentclass[10pt, oneside, twocolumn]{article}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage[ampersand]{easylist}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{chemformula}
+%\usepackage{euler}
+\graphicspath{./}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength\parindent{0cm}
+
+\usepackage{standalone}
+\usepackage{rotating}
+\numberwithin{equation}{section}
+
+
+\title{Yr 3: Advanced Reaction Systems - Exam Crib Sheet}
+\author{Genevieve Clifford}
+\date{Semester 3, Week 2}
+
+
+\begin{document}
+	\maketitle
+	\section{Complex Reactions}
+		\subsection{Reaction Types}
+			Series:\par
+			\ch{A + B -> C} \par
+			Parallel:\par
+			\ch{A -> B} \par
+			\ch{A -> C} \par
+			Series-parallel:\par
+			\ch{A + B -> C} \par
+			\ch{A + C -> D} \par
+		\subsection{Parallel Reactions}
+			\ch{A ->[k1] V} is considered desired\\
+			\ch{A ->[k2] W} is considered undesired\\
+			\begin{gather}
+				r_V=\frac{\mathrm{d}C_V}{\mathrm{d}t}=k_1C_A^{\alpha_1}\\
+				r_W=\frac{\mathrm{d}C_W}{\mathrm{d}t}=k_2C_A^{\alpha_2}\\
+				\frac{r_V}{r_W}=\frac{\mathrm{d}C_V}{\mathrm{d}C_W}=\frac{k_1}{k_2}C_A^{(\alpha_1-\alpha_2)}
+			\end{gather}
+			\begin{table}[h!]
+				\begin{tabular}{l|p{0.35\textwidth}}
+				Case:	&  Do:\\
+				\hline
+				$\alpha_1>\alpha_2$	&Use a high concentration of A to promote instantaneous selectivity  \\
+				$\alpha_1<\alpha_2$	&Use a low concentration of A to promote instantaneous selectivity  \\
+				$\alpha_1=\alpha_2$	&Adjusting the concentration of A does not affect the instantaneous selectivity  \\ 
+				\end{tabular}
+			\end{table}\\
+			If instantaneous yield \textit{increases} with increasing reactant concentration, use plug flow or batch reactors. If instantaneous yield \textit{decreases} with increasing reactant concentration, use CSTRs. If at a maxima or minima of instantaneous yield, use a combination of CSTRs and PFRs.
+		\subsection{Batch Reactions}
+		\begin{table}[h]
+			\begin{tabular}{p{0.15\textwidth}|p{0.25\textwidth}}
+				Case:	&  Do:\\
+				\hline
+				$C_A, C_B$ both high	&Add A and B all at one time  \\
+				$C_A, C_B$ both low	&Add A and B slowly, level rises  \\
+				$C_A$ high, $C_B$ low	&Start with A, add B slowly  \\ 
+			\end{tabular}
+		\end{table}
+		\subsection{Yield}
+			\begin{equation}
+			y=\frac{v_A}{v_V}\frac{\mathrm{d}C_V}{\mathrm{d}C_A}\\
+			\end{equation}
+			For a reaction scheme \ch{aA -> vV}, $v_A=-a$, $v_V=v$ and assuming recycle of A:\par
+			\begin{equation}
+			Y=\frac{v_A}{v_V}\left(\frac{C_{VF}-C_{V0}}{C_{AF}-C_{A0}}\right)
+			\end{equation}
+			With no recycle:
+			\begin{equation}
+			Y=\frac{v_A}{v_V}\left(\frac{C_{VF}}{-C_{A0}}\right)
+			\end{equation}
+			\subsubsection{CSTR Yield}
+				\begin{equation}
+				Y_{CSTR}=y_{CSTR}=\frac{v_A r_{VF}}{v_V r_{AF}}
+				\end{equation}
+			\subsubsection{PFR or Batch Reactor Yield}
+				\begin{gather}
+				C_{VF}-C_{V0}=\int_{C_{A0}}^{C_{AF}}\frac{v_V y}{v_A} \ \mathrm{d}C_A\\
+				Y=\frac{1}{C_{AF}-C_{A0}}\int_{C_{A0}}^{C_{AF}}y\ \mathrm{d}C_A
+				\end{gather}
+			\subsubsection{CSTRs in Series Yield}
+				\begin{equation}
+				Y=\frac{\sum_{i=1}^{n}\left[y_i{\left(\Delta C_A\right)}_i\right]}{C_{An}-C_{A0}}
+				\end{equation}
+		\subsection{Series-Parallel Reactions}
+			\ch{A + B ->[k1] V} series w.r.t. A \par
+			\ch{A + C ->[k2] W} parallel w.r.t. B \par
+			\subsubsection{Quantitative Solution}
+				Assuming the reaction above takes place in a plug flow or batch reactor and the reactions are first order with respect to each reactant (i.e. second order overall):
+				\begin{gather}
+				-\frac{\mathrm{d}C_A}{\mathrm{d}t}=k_1C_AC_B\\
+				\frac{\mathrm{d}C_V}{\mathrm{d}t}=k_1C_AC_B-k_2C_VC_B\\
+				y=\frac{v_A}{v_V}\frac{\mathrm{d}C_V}{\mathrm{d}C_A}=\frac{k_1C_AC_B-k_2C_VC_B}{k_1C_AC_B}\\
+				\frac{\mathrm{d}C_V}{\mathrm{d}C_A}=\frac{k_2}{k_1}\frac{C_V}{C_A}-1
+				\end{gather}
+				For $k_2 \ne k_1$:
+				\begin{equation}
+				\frac{C_V}{C_{A0}}=\frac{1}{1-\frac{k_2}{k_1}}\left[{\left(\frac{C_A}{C_{A0}}\right)}^{\frac{k_2}{k_1}}-\frac{C_A}{C_{A0}}\right]+\frac{C_{V0}}{C_{A0}}{\left(\frac{C_A}{C_{A0}}\right)}^{\frac{k_2}{k_1}}
+				\end{equation}
+				For $k_1=k_2$:
+				\begin{equation}
+				\frac{C_V}{C_{A0}}=\frac{C_A}{C_{A0}}\left(\frac{C_{V0}}{C_{A0}}-\mathrm{ln} \ \frac{C_A}{C_{A0}}\right)
+				\end{equation}
+				Material balance on Species A yields:
+				\begin{gather}
+				C_{A0}+C_{V0}+C_{W0}=C_A+C_V+C_W\\
+				C_{B0}-C_B=\left(C_V-C_{V0}\right)+2\left(C_W-C_{W0}\right)\\
+				-r_AV=QC_{A0}-QC_{AF}\\
+				-r_VV=QC_{V0}-QC_{VF}\\
+				\tau=\frac{V}{Q}=\frac{C_{A0}-C_A}{-r_A}=\frac{C_{V0}-C_V}{-r_V}\\
+				\frac{C_{V0}-C_V}{C_{A0}-C_A}=-1+\frac{k_2C_V}{k_1C_A}\\
+				\frac{C_V}{C_{A0}}=\frac{\frac{C_{V0}}{C_{A0}}+\left(1-\frac{C_A}{C_{A0}}\right)}{1+\frac{k_2}{k_1}\left(\frac{C_{A0}}{C_A}-1\right)}
+				\end{gather}
+				The graphical interpretation of this equation is given separately, one must calculate the amount of B consumed, then determine the ratio of rate constants and then parameters can be read off from the chart.
+	\section{Non-Ideal Flow}
+	\subsection{Pulse input}
+		\begin{gather}
+		\int_0^\infty C(t) \ \mathrm{d}t\approx\sum_i C_i \Delta t_i=\frac{m}{v}\\
+		E(t)=\frac{C_\mathrm{pulse}v}{m}\\
+		\end{gather}
+
+	\subsection{General Residence Time Distribution Formulae}
+		\begin{gather}
+		\tau=\frac{\int_0^\infty t \ C(t) \ \mathrm{d}t}{\int_0^\infty C(t) \ \mathrm{d}t}\\
+		\tau=\int_0^\infty t \ E(t)\ \mathrm{d}t\approx\sum_i t_i E_i \Delta t_i
+		\end{gather}
+	
+	\subsection{Kinetics}
+		\subsubsection{General}
+			\begin{align}
+			\frac{\bar{C}_A}{C_{A0}}&=\int_0^\infty {\left(\frac{C_A}{C_{A0}}\right)}_{\mathrm{elem}} \ E(t) \ \mathrm{d}t\\
+			&\approx \sum_i {\left(\frac{C_A}{C_{A0}}\right)}_{\textrm{elem, }i} E(t_i) \Delta t_i
+			\end{align}
+		\subsubsection{0\textsuperscript{th} Order Reactions}
+			\begin{equation}
+			C_{A0}-C_A=k\tau
+			\end{equation}
+		\subsubsection{1\textsuperscript{st} Order Reactions}
+			\begin{equation}
+			{\left(\frac{C_A}{C_{A0}}\right)}_{\mathrm{elem}}=\mathrm{e}^{-k\tau}
+			\end{equation}
+		\subsubsection{2\textsuperscript{nd} Order Reactions}
+			\begin{equation}
+			{\left(\frac{C_A}{C_{A0}}\right)}_{\mathrm{elem}}=\frac{1}{1+kC_{A0}t}
+			\end{equation}
+		\subsubsection{Variance}
+			\begin{gather}
+			\sigma^2=\int_0^\infty t^2 \ E(t)\ \mathrm{d}t - \tau^2\\
+			\sigma^2\approx\frac{\sum_i{(t_i-\tau)}^2C_i\Delta t_i}{\sum_iC_i\Delta t_i}-\tau^2\\
+			\Delta \sigma^2=\sigma^2_{out}+\sigma^2_{in}=\frac{\Delta \tau^2}{N}\\
+			\end{gather}
+		\subsubsection{Recycle Ratio}
+			\begin{equation}
+			R=\frac{\sigma^2}{{\bar{\tau}}^2-\sigma^2}
+			\end{equation}
+			\begin{sidewaysfigure}[h!]
+				\centering
+				\includestandalone{recycle_loop_graphic}
+			\end{sidewaysfigure}
+			
+	\subsection{Ideal Reactors}
+		\subsubsection{PFR Design Equation}
+			\begin{gather*}
+			\textrm{Assume first order kinetics}\\
+			\frac{\mathrm{d}C_A}{\mathrm{d}t}=r_A=-kC_A\\
+			\int_{C_{A1}}^{C_{A2}} \frac{1}{C_A} \ \mathrm{d}C_A=-k\int_0^t \mathrm{d}t\\
+			C_{A2}=C_{A1}\mathrm{e}^{-kt}			
+			\end{gather*}
+		\subsubsection{CSTR Design Equation}
+			\begin{gather*}
+			In=Out+Disappearance\\
+			vC_{A0}=vC_{A1}+(-r_A)V_r\\
+			\textrm{Assume first order kinetics}\\
+			vC_{A0}=vC_{A1}+kC_{A1}V_r\\
+			C_{A0}=C_{A1}+kC_{A1}\tau\\
+			\frac{C_{A1}}{C_{A0}}=\frac{1}{1+k\tau}
+			\end{gather*}
+	\subsection{Tanks in series}
+	$N$ plug flow reactors in series with a total volume $V$ gives the same conversion as a single plug flow reactor of volume $V$.
+		\begin{gather}
+		\theta_i=\frac{t}{\tau_i}\\
+		\theta=\frac{t}{\tau}\\
+		\tau E(t)={\left(\frac{t}{\tau}\right)}^{N-1}\frac{N^N}{(N-1)!}\mathrm{e}^{\frac{-tN}{\tau}}		
+		\end{gather}
+\end{document}
