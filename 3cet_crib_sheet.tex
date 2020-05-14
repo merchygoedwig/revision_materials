@@ -214,5 +214,30 @@
 			\begin{equation}
 			\frac{\partial}{\partial x_j}{\left(\frac{\partial \phi}{\partial x_i}\right)}\equiv\frac{\partial}{\partial x_i}{\left(\frac{\partial \phi}{\partial x_j}\right)}
 			\end{equation}
-
+		\subsection{Differentiation Rules}
+			\subsubsection{Product Rule}
+				\begin{gather}
+				y=u(x)\cdot v(x)\\
+				\frac{dy}{dx}=v(x)\frac{du(x)}{dx}+u(x)\frac{dv(x)}{dx}
+				\end{gather}
+			\subsubsection{Quotient Rule}
+				\begin{gather}
+				y=\frac{u(x)}{v(x)}\\
+				\frac{dy}{dx}=\frac{\left[v(x)\frac{du(x)}{dx}-u(x)\frac{dv(x)}{dx}\right]}{{v(x)}^2}
+				\end{gather}
+			\subsubsection{Chain Rule}
+				\begin{gather}
+				\frac{dz}{dx}=\frac{dz}{dy}\cdot\frac{dy}{dx}
+				\end{gather}
+		\subsection{Integration Rules}
+			\subsubsection{Integrating by Parts}
+				\begin{equation}
+				\int u(x) \frac{dv(x)}{dx} dx=u(x)v(x)-\int v(x) \frac{du(x)}{dx}
+				\end{equation}
+			\subsubsection{Integrating Factor}
+				\begin{gather}
+				\frac{dy}{dx}+P(x)y=Q(x)\\
+				y=\frac{\int IQ(x)dx}{I}\\
+				I=e^{\int P(x)dx}
+				\end{gather}
 \end{document}

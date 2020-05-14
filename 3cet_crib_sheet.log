@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.5)  13 MAY 2020 16:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.5)  14 MAY 2020 13:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1373,15 +1373,17 @@ dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2019/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy5.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/eul
-er/euex10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/euf
-m10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pf
-b><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb><c:/t
-exlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb><c:/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on 3cet_crib_sheet.pdf (3 pages, 140706 bytes).
+er/euex10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eue
+x7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
+><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb><c:/te
+xlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb><c:/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb><c:/texlive/2019/te
+xmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb><c:/texlive/2019/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on 3cet_crib_sheet.pdf (3 pages, 147883 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
